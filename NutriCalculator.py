@@ -6,7 +6,7 @@ from reportlab.lib.pagesizes import letter
 class NutriCalculatorApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Nutri Monchi")
+        self.root.title("Nutri Calculadora")
 
         # Variables
         self.name_var = tk.StringVar()
@@ -66,7 +66,7 @@ class NutriCalculatorApp:
             messagebox.showinfo("Resultados", result_message)
 
             # Generate and open PDF
-            patient_info = f"Paciente: {self.name_var.get()}\nEdad: {age} años\nPeso: {weight} kg\nAltura: {height} metros"
+            patient_info = f"Paciente: {self.name_var.get()}, Edad: {age} años, Peso: {weight} kg, Altura: {height} metros."
             self.generate_pdf(hb_result, mf_result, imc_result, classification_result, patient_info)
 
         except ValueError as e:
@@ -113,7 +113,7 @@ class NutriCalculatorApp:
 
     def generate_pdf(self, hb_result, mf_result, imc_result, classification_result, patient_info):
         import os
-        pdf_folder = "C:/Users/Marmon/Desktop/Resultados de pacientes/"
+        pdf_folder = "C:/Users/Faskomilo/Desktop/Nutricalculator/"
         pdf_file = f"{pdf_folder}{self.name_var.get()} resultados.pdf"
 
         if not os.path.exists(pdf_folder):
@@ -136,7 +136,7 @@ if __name__ == "__main__":
     app = NutriCalculatorApp(root)
     root.columnconfigure(0, weight= 1)
 
-    window_width = 320
+    window_width = 380
     window_height = 250
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
