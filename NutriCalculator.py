@@ -13,7 +13,7 @@ class NutriCalculatorApp:
         self.age_var = tk.StringVar()
         self.height_var = tk.StringVar()
         self.weight_var = tk.StringVar()
-        self.gender_var = tk.StringVar(value="Hombre")  # Default to Male
+        self.gender_var = tk.StringVar(value="Mujer")  # Default to Female
 
         # Create UI elements
         self.create_ui()
@@ -21,18 +21,16 @@ class NutriCalculatorApp:
     def create_ui(self):
         main_frame = ttk.Frame(self.root, padding=(30, 15))
         main_frame.grid(row=0, column=0, sticky="nsew")
-
-        # Labels and Entries
-        labels_entries = [
-            ("Nombre del paciente:", self.name_var, 0),
-            ("Edad del paciente:", self.age_var, 1),
-            ("Altura (en metros):", self.height_var, 2),
-            ("Peso en kilogramos:", self.weight_var, 3)
-        ]
-
-        for label, var, row in labels_entries:
-            ttk.Label(main_frame, text=label).grid(column=0, row=row, sticky="w", pady=5)
-            ttk.Entry(main_frame, textvariable=var).grid(column=1, row=row, sticky="ew", pady=5)
+        
+        #CREATE THE BUTTONS
+        ttk.Label(main_frame, text= "Nombre del paciente:").grid(column=0, row=0, sticky="w", pady=5)
+        ttk.Entry(main_frame, textvariable= self.name_var).grid(column=1, row=0, sticky="ew", pady=5)
+        ttk.Label(main_frame, text= "Edad del paciente:").grid(column=0, row=1, sticky="w", pady=5)
+        ttk.Entry(main_frame, textvariable= self.age_var).grid(column=1, row=1, sticky="ew", pady=5)
+        ttk.Label(main_frame, text= "Altura (en metros):").grid(column=0, row=2, sticky="w", pady=5)
+        ttk.Entry(main_frame, textvariable= self.height_var).grid(column=1, row=2, sticky="ew", pady=5)
+        ttk.Label(main_frame, text= "Peso en kilogramos:").grid(column=0, row=3, sticky="w", pady=5)
+        ttk.Entry(main_frame, textvariable= self.weight_var).grid(column=1, row=3, sticky="ew", pady=5)
 
         # Radio Buttons
         ttk.Label(main_frame, text="Sexo:").grid(column=0, row=4, sticky="w")
